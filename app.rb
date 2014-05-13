@@ -97,11 +97,6 @@ class GithubExporterApp < Sinatra::Application
     redirect to('/')
   end
 
-  error do
-    'whoops'
-  end
-
-
   def authenticate!
     raise AuthenticationError unless logged_in?
   end
