@@ -1,0 +1,35 @@
+<p>Hi <strong><%= @user.login %></strong></p>
+
+<form action="<%= url('/export') %>" method="post" class="form-horizontal">
+  <div class="form-group">
+    <label>
+      Link to repository
+      <input class="form-control" type="text" name="repo" value="<%= params[:repo] %>"/>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Get all issues for
+      <select class="form-control" name="period">
+        <option value="year" <%= 'selected' if params[:period] == 'year' %>>last year</option>
+        <option value="month" <%= 'selected' if params[:period] == 'month' %>>last month</option>
+        <option value="week" <%= 'selected' if params[:period] == 'year' %>>last week</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Issue state
+      <select class="form-control" name="state">
+        <option value="all" <%= 'selected' if params[:state] == 'all' %>>all</option>
+        <option value="open" <%= 'selected' if params[:state] == 'open' %>>open</option>
+        <option value="closed" <%= 'selected' if params[:state] == 'closed' %>>closed</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Get issues"/>
+  </div>
+</form>
+
